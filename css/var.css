@@ -1,0 +1,27 @@
+/* --- 备案号样式开始 --- */
+.beian-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  font-size: 14px;
+  color: #999;
+  margin-top: 20px;
+}
+.beian-link-text,
+.beian-link {
+  text-decoration: none;
+  color: #999;
+  transition: color 0.3s;
+}
+.beian-link-text:hover,
+.beian-link:hover {
+  color: #49b1f5;
+}
+.beian-icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+/* --- 备案号样式结束 --- */
