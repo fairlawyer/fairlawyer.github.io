@@ -25,3 +25,37 @@
   margin-right: 5px;
 }
 /* --- 备案号样式结束 --- */
+/* =================================================
+   【闲聊波尔卡】核心修复 - 必须加在 var.styl 末尾
+   解决分页器与页脚拥挤问题 (电脑端关键)
+   ================================================= */
+/* 1. 强制页脚内部容器为垂直 Flex 布局 */
+#footer .footer-inner {
+  display: flex !important;
+  flex-direction: column !important /* 关键：垂直排列 */;
+  justify-content: center !important /* 关键：垂直居中 */;
+  align-items: center !important /* 关键：水平居中 */;
+  min-height: 220px !important /* 关键：增加高度，制造呼吸感 */;
+  padding: 40px 0 !important;
+  width: 100%;
+}
+/* 2. 统一页脚内所有元素的间距 */
+#footer .footer-inner > * {
+  margin: 12px 0 !important;
+  line-height: 1.6 !important;
+  text-align: center !important;
+  width: 100%;
+}
+/* 3. 特别优化标语“已经稳妥！” */
+#footer .footer-custom-text {
+  font-size: 1.15rem !important;
+  font-weight: bold !important;
+  letter-spacing: 3px !important;
+  margin: 15px 0 !important;
+}
+/* 4. 强制分页器与页脚分离 */
+#pagination {
+  margin-bottom: 30px !important;
+  clear: both !important;
+  display: block !important;
+}
