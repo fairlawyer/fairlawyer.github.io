@@ -1,4 +1,58 @@
-<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script>/* 测试代码：如果生效，整个网页背景会变成红色！ */
-body {
-  background-color: red !important;
+<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script>/* =================================================
+   【闲聊波尔卡】Butterfly 专属页脚修复
+   修正策略：针对 .footer-inner 进行 Flex 布局，而非 #footer
+   ================================================= */
+/* 1. 核心修复：让 .footer-inner 成为垂直居中的 Flex 容器 */
+#footer .footer-inner {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important; /* 垂直居中关键 */
+  align-items: center !important; /* 水平居中关键 */
+/* 2. 增加高度空间，制造“徐行”的呼吸感 */
+  min-height: 220px;
+  padding: 40px 0 !important;
+/* 3. 确保内部元素不换行混乱 */
+  width: 100%;
+  box-sizing: border-box;
+}
+/* 4. 优化内部元素的间距，形成“波尔卡”的节奏 */
+#footer .footer-inner > div,
+#footer .footer-inner > p,
+#footer .copyright-item,
+#footer .beian-info,
+#footer .footer-custom-text {
+  margin: 10px 0 !important; /* 统一行间距 */
+  line-height: 1.6 !important;
+  text-align: center !important;
+  width: 100%; /* 确保每行占满宽度以便居中 */
+}
+/* 5. 特别强化标语“已经稳妥！”的视觉权重 */
+/* 注意：Butterfly 中 custom_text 通常渲染在 .footer-custom-text 或直接在 copyright 区域 */
+#footer .footer-custom-text,
+#footer .copyright-item:has(span:contains("已经稳妥")) {
+/* 如果 :has 不兼容，建议直接在 config 中给标语加 class，或者依靠下面的通用样式 */
+  font-size: 1.15rem !important;
+  font-weight: bold !important;
+  letter-spacing: 3px !important;
+  color: var(--text-highlight-color) !important;
+  margin: 15px 0 !important; /* 标语上下留白更多 */
+}
+/* 6. 弱化备案号，使其成为背景音 */
+#footer .beian-info {
+  font-size: 0.8rem !important;
+  opacity: 0.6 !important;
+  margin-top: 20px !important;
+}
+/* 7. 解决分页器挤压问题：确保分页器在页脚上方独立存在 */
+/* Butterfly 的分页器通常在 #pagination 或 .pagination */
+#pagination {
+  margin-bottom: 30px !important; /* 强行拉开与页脚的距离 */
+  display: block !important;
+  clear: both !important;
+}
+/* 8. 防止某些主题版本中 footer 内部的 grid 或 float 干扰 */
+#footer .footer-inner::before,
+#footer .footer-inner::after {
+  content: none !important;
+  display: none !important;
 }
